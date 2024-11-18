@@ -1,0 +1,9 @@
+
+<h1>Companies</h1>
+<ul>
+  <% companies.forEach(company => { %>
+    <li>
+      <a href="/company/<%= company._id %>"><%= company.name %></a>
+    </li>
+  <% }) %>
+</ul>
