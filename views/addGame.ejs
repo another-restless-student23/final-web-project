@@ -1,0 +1,11 @@
+
+<h1>Add a New Game</h1>
+<form action="/game" method="POST">
+  <input type="text" name="title" placeholder="Game Title" required>
+  <input type="date" name="releaseDate" placeholder="Release Date" required>
+  <input type="text" name="genre" placeholder="Genre" required>
+  <textarea name="description" placeholder="Description" required></textarea>
+  <input type="text" name="company" placeholder="Company ID" required> <!-- Use company ID -->
+  <input type="text" name="images" placeholder="Image URLs (comma-separated)" required>
+  <button type="submit">Add Game</button>
+</form>

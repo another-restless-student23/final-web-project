@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Data Visualization</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Stock Data for <%= company.name %></h1>
+  <canvas id="stockChart" width="400" height="200"></canvas>
+
+  <script>
+    // Safely embedding data from the server using EJS
+    const stockPrice = parseFloat("<%= stockData.price %>"); // Convert to a number
+    const stockChange = parseFloat("<%= stockData.change %>"); // Convert to a number
+  
+    // Create a chart
+    const ctx = document.getElementById('stockChart').getContext('2d');
+    const stockChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Price', 'Change'],
+        datasets: [{
+          label: 'Stock Data',
+          data: [stockPrice, stockChange],
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 2,
+          fill: false
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>  
+</body>
+</html>

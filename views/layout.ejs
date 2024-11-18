@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Portfolio</title>
+  <link rel="stylesheet" href="../public/styles/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/company">Companies</a></li>
+          <li><a href="/game">Games</a></li>
+          <% if (role === 'admin') { %>
+            <li><a href="/company/add">Add Company (Admin)</a></li>
+            <li><a href="/game/add">Add Game (Admin)</a></li>
+          <% } else if (role === 'editor') { %>
+            <li><a href="/company/add">Add Company (Editor)</a></li>
+          <% } %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li> <!-- Added Register button -->
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </nav>
+      
+
+  <main>
+    <%- body %> <!-- Where content from other views will be injected -->
+  </main>
+</body>
+</html>
