@@ -50,6 +50,11 @@ app.get('/register', (req, res) => {
   res.render('register', { role });
 });
 
+app.get('/logout', (req, res) => {
+  res.clearCookie('token');
+  res.redirect('/login'); // Redirect to the login page
+});
+
 
 
 // Connect to MongoDB
